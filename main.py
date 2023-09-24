@@ -17,3 +17,6 @@ X[:, 1:3] = impute.transform(X[:, 1:3])
 ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [0])], remainder='passthrough')
 X = np.array(ct.fit_transform(X))
 
+le = LabelEncoder()
+y = le.fit_transform(y)
+
