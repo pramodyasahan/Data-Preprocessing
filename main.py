@@ -14,3 +14,6 @@ impute = SimpleImputer(missing_values=np.nan, strategy="mean")
 impute.fit(X[:, 1:3])
 X[:, 1:3] = impute.transform(X[:, 1:3])
 
+ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [0])], remainder='passthrough')
+X = np.array(ct.fit_transform(X))
+
